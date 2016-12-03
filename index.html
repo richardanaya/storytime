@@ -20,7 +20,8 @@
     </a-camera>
   </a-entity>
   <a-entity id="scene">
-    <story-scene v-bind:page="currentPage"></story-scene>
+    <intro-scene v-if="state.storytime.gameStarted == false"></intro-scene>
+    <story-scene v-if="state.storytime.gameStarted" v-bind:page="currentPage"></story-scene>
   </a-entity>
 </a-scene>
 <script src="components/story-part.js"></script>

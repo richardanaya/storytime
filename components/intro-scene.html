@@ -1,7 +1,7 @@
 <template>
   <div class="IntroScreen">
     Welcome to Storytime
-    <a href="#!/firstPage">Play</a>
+    <button v-on:click="dispatch('start_game')">Play</button>
   </div>
 </template>
 <script>
