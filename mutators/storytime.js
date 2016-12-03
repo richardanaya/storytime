@@ -6,6 +6,7 @@ function storytimeInitialState(){
   addPage("",{
     actions:[
       {
+        scene:"scene_a.dae",
         text:"Go to test",
         page:"test"
       }
@@ -14,6 +15,7 @@ function storytimeInitialState(){
   addPage("test",{
     actions:[
       {
+        scene:"scene_b.dae",
         text:"Go to blah",
         page:""
       }

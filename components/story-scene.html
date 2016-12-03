@@ -2,6 +2,7 @@
   <a-entity>
     <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9" @click="boxTouched"></a-box>
     <a-entity v-bind:bmfont-text="'text: '+page.actions[0].text+'; opacity:'+pageOpacity"></a-entity>
+    <a-collada-model v-bind:src="'assets/'+page.actions[0].scene+'?'+Math.random()"></a-collada-model>
   </a-entity>
 </template>
 <script>
