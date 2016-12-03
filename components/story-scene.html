@@ -3,6 +3,8 @@
     <a-entity v-bind:bmfont-text="'text: '+page.actions[0].text+'; opacity:'+pageOpacity"></a-entity>
     <a-collada-model v-bind:src="page.scene+'?'+Math.random()" @click="sceneTouched($event)"></a-collada-model>
     <a-sky v-bind:src="page.sky"></a-sky>
+    <!--flagged items-->
+    <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9" v-if="hasFlag('mysterious-box')"></a-box>
   </a-entity>
 </template>
 <script>
@@ -14,14 +16,31 @@
         pageOpacity: 1
       }
     },
+    created: function(){
+      this.handleFlags(this.page.flags)
+    },
+    watch: {
+       page: function(){
+         this.handleFlags(this.page.flags)
+       }
+    },
     methods: {
+      handleFlags: function(flags){
+        //custom handle flags
+        console.log(flags)
+      },
+      hasFlag: function(flag){
+        debugger;
+        return this.page.flags && this.page.flags.indexOf(flag)!=-1;
+      },
       sceneTouched: function(e){
+        this.dispatch("go_to_page","climb_hill")
         var intersections = e.detail.cursorEl.components.cursor.intersections;
         var name = intersections[0].object.parent.colladaId;
         console.log("you clicked on "+name);
         for(var i = 0 ; i < this.page.actions.length; i++){
           if(this.page.actions[i].trigger == name){
-            this.dispatch("go_to_page",this.page.actions[i].page)
+            //this.dispatch("go_to_page",this.page.actions[i].page)
           }
         }
       }

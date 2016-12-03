@@ -21,10 +21,12 @@
   </a-entity>
   <a-entity id="scene">
     <intro-scene v-if="state.storytime.gameStarted == false"></intro-scene>
-    <story-scene v-if="state.storytime.gameStarted" v-bind:page="currentPage"></story-scene>
+    <custom-scene-example v-if="state.storytime.gameStarted && currentPage.customScene === 'custom-scene-example'" v-bind:page="currentPage"></custom-scene-example>
+    <story-scene v-if="state.storytime.gameStarted && currentPage.customScene === undefined" v-bind:page="currentPage"></story-scene>
   </a-entity>
 </a-scene>
 <script src="pages.js"></script>
+<link rel="import" href="components/custom-scene-example.html" >
 <link rel="import" href="components/intro-scene.html" >
 <link rel="import" href="components/story-scene.html" >
 <script src="mutators/storytime.js"></script>
