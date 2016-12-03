@@ -17,6 +17,7 @@
   </a-entity>
 </template>
 <script>
+  
   Vue.component('story-scene', {
     template: document.currentScript.parentNode.querySelector("template").innerHTML,
     props: ["page"],
@@ -31,6 +32,7 @@
       }
     },
     created: function(){
+      this.howlerFacade = new HowlerFacade();
       this.onPageChange();
     },
     watch: {
@@ -39,7 +41,11 @@
        }
     },
     methods: {
-      onPageChange: function(flags){
+      onPageChange: function(){
+        this.page.sounds.forEach(function(sound){
+          this.howlerFacade.playSound(sound);
+        }.bind(this));
+
         if(page.flags){
           //custom handle flags
           console.log(flags)
@@ -111,6 +117,11 @@
             this.showActionText();
           }
         }
+        let camera = document.querySelector("#camera");
+        console.log(camera);
+        console.log(this);
+        console.log("test");
+
       }
     }
   })
