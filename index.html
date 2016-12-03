@@ -13,8 +13,8 @@
   <a-assets>
     <a-asset-item id="piece" src="assets/piece.dae"></a-asset-item>
   </a-assets>
-  <a-entity position="0 0 3">
-    <a-camera fps-look-controls wasd-controls="enabled: true" fov=60 near=0.1 far=10000>
+  <a-entity position="0 0 0">
+    <a-camera position="0 0 0" fps-look-controls wasd-controls="enabled: true" fov=60 near=0.1 far=10000>
       <a-cursor fuse="false"></a-cursor>
       <a-entity raycaster="far: 20; interval: 1000; objects: .clickable"></a-entity>
     </a-camera>
@@ -24,7 +24,7 @@
     <story-scene v-if="state.storytime.gameStarted" v-bind:page="currentPage"></story-scene>
   </a-entity>
 </a-scene>
-<script src="components/story-part.js"></script>
+<script src="pages.js"></script>
 <link rel="import" href="components/intro-scene.html" >
 <link rel="import" href="components/story-scene.html" >
 <script src="mutators/storytime.js"></script>

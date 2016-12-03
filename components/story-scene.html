@@ -1,7 +1,8 @@
 <template>
   <a-entity>
     <a-entity v-bind:bmfont-text="'text: '+page.actions[0].text+'; opacity:'+pageOpacity"></a-entity>
-    <a-collada-model v-bind:src="'assets/'+page.scene+'?'+Math.random()" @click="sceneTouched($event)"></a-collada-model>
+    <a-collada-model v-bind:src="page.scene+'?'+Math.random()" @click="sceneTouched($event)"></a-collada-model>
+    <a-sky v-bind:src="page.sky"></a-sky>
   </a-entity>
 </template>
 <script>

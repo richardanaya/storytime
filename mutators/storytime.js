@@ -1,28 +1,4 @@
 function storytimeInitialState(){
-  var pages = {}
-  function addPage(name,p){
-      pages[window.location.pathname+name] = p;
-  }
-  addPage("",{
-    scene:"scene1.dae",
-    actions:[
-      {
-        trigger: "window_wall",
-        text:"Go to test",
-        page:"test"
-      }
-    ]
-  })
-  addPage("test",{
-    scene:"scene_a.dae",
-    actions:[
-      {
-        trigger:"Cat",
-        text:"Go to blah",
-        page:""
-      }
-    ]
-  })
   return {
     gameStarted: false,
     currentRoute: null,
