@@ -4,18 +4,20 @@ function storytimeInitialState(){
       pages[window.location.pathname+name] = p;
   }
   addPage("",{
+    scene:"scene_a.dae",
     actions:[
       {
-        scene:"scene_a.dae",
+        trigger:"Cat",
         text:"Go to test",
         page:"test"
       }
     ]
   })
   addPage("test",{
+    scene:"scene_b.dae",
     actions:[
       {
-        scene:"scene_b.dae",
+        trigger: "Cube",
         text:"Go to blah",
         page:""
       }
