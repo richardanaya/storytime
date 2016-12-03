@@ -6,8 +6,9 @@ var router = (function(){
   }
 
   // ACTIVE ROUTES
-  page(window.location.pathname+ROUTE_ROOT, goToPage)
-  page(window.location.pathname+ROUTE_TEST, goToPage)
+  for(var i in pages){
+      page(i, goToPage)
+  }
 
   return {
     goTo: function(path){
