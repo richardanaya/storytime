@@ -1,10 +1,10 @@
 <template>
   <a-entity>
     <a-entity position="0 1.6 -1">
-      <a-box  scale="1.7 .8 .001" v-bind:material="'color: black; opacity: .1'"></a-box>
+      <a-box  scale="1.7 .8 .001" v-bind:material="'color: black; opacity:'+pageOpacity"></a-box>
       <a-entity position="-.75 -.1 .1" scale=".3 .3 .3" v-bind:bmfont-text="'text: '+page.description+'; align: center; color:white; opacity:'+pageOpacity"></a-entity>
     </a-entity>
-    <a-collada-model v-bind:src="page.scene+'?'+Math.random()" @click="sceneTouched($event)"></a-collada-model>
+    <a-collada-model v-bind:src="page.scene+'?'+randomness" @click="sceneTouched($event)"></a-collada-model>
     <a-sky v-bind:src="page.sky"></a-sky>
     <!--flagged items-->
     <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9" v-if="hasFlag('mysterious-box')"></a-box>
@@ -16,6 +16,8 @@
     props: ["page"],
     data: function(){
       return {
+        //this is used for cache busting
+        randomness: Math.random(),
         pageOpacity: 1
       }
     },
@@ -33,16 +35,32 @@
           //custom handle flags
           console.log(flags)
         }
-        var _this = this;
-        new TWEEN.Tween({opacity:0})
-        .to({opacity:1}, 1000)
-        .onUpdate(function() {
-            _this.pageOpacity = this.opacity;
-        })
-        .start();
+        this.showPageText();
       },
       hasFlag: function(flag){
         return this.page.flags && this.page.flags.indexOf(flag)!=-1;
+      },
+      showPageText: function(){
+        if(this.pageOpacity==0){
+          var _this = this;
+          new TWEEN.Tween({opacity:0})
+          .to({opacity:1}, 1000)
+          .onUpdate(function() {
+              _this.pageOpacity = this.opacity;
+          })
+          .start();
+        }
+      },
+      hidePageText: function(){
+        if(this.pageOpacity==1){
+          var _this = this;
+          new TWEEN.Tween({opacity:1})
+          .to({opacity:0}, 1000)
+          .onUpdate(function() {
+              _this.pageOpacity = this.opacity;
+          })
+          .start();
+        }
       },
       sceneTouched: function(e){
         var intersections = e.detail.cursorEl.components.cursor.intersections;
@@ -50,6 +68,7 @@
         console.log("you clicked on "+name);
         for(var i = 0 ; i < this.page.actions.length; i++){
           if(this.page.actions[i].trigger == name){
+            this.hidePageText();
             //this.dispatch("go_to_page",this.page.actions[i].page)
           }
         }
