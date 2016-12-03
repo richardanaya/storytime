@@ -3,7 +3,7 @@ function addPage(name,p){
     pages[window.location.pathname+name] = p;
 }
 addPage("",{
-  scene:"assets/house.dae",
+  scene:"assets/scene_a.dae",
   sky:"assets/house_sky.jpg",
   description: "On a lonely autumn night, you are woken up from your sleep by strange lights coming through the window of your farmhouse. You look outside, and see a strange meteor falling through the sky, landing on a nearby hill. You get dressed and go outside to investigate...",
   sound:"assets/sounds/house.mp3",
@@ -16,7 +16,7 @@ addPage("",{
       sound:"assets/sounds/hill.mp3",
     },
     {
-      trigger: "meteor",
+      trigger: "Cat",
       description: "Approach the meteor",
       page:"approach_meteor",
       sound:"assets/sounds/meteor.mp3",
