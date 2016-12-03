@@ -1,7 +1,7 @@
 function storytimeInitialState(){
   return {
     gameStarted: false,
-    currentRoute: null,
+    currentRoute: window.location.path,
     pages: pages
   }
 }

@@ -1,6 +1,9 @@
 <template>
   <a-entity>
-    <a-entity v-bind:bmfont-text="'text: '+page.actions[0].text+'; opacity:'+pageOpacity"></a-entity>
+    <a-entity position="0 1.6 -1">
+      <a-box  scale="1.7 .8 .001" v-bind:material="'color: black; opacity: .1'"></a-box>
+      <a-entity position="-.75 -.1 .1" scale=".3 .3 .3" v-bind:bmfont-text="'text: '+page.description+'; align: center; color:white; opacity:'+pageOpacity"></a-entity>
+    </a-entity>
     <a-collada-model v-bind:src="page.scene+'?'+Math.random()" @click="sceneTouched($event)"></a-collada-model>
     <a-sky v-bind:src="page.sky"></a-sky>
     <!--flagged items-->
@@ -17,17 +20,26 @@
       }
     },
     created: function(){
-      this.handleFlags(this.page.flags)
+      this.onPageChange();
     },
     watch: {
        page: function(){
-         this.handleFlags(this.page.flags)
+         this.onPageChange();
        }
     },
     methods: {
-      handleFlags: function(flags){
-        //custom handle flags
-        console.log(flags)
+      onPageChange: function(flags){
+        if(page.flags){
+          //custom handle flags
+          console.log(flags)
+        }
+        var _this = this;
+        new TWEEN.Tween({opacity:0})
+        .to({opacity:1}, 1000)
+        .onUpdate(function() {
+            _this.pageOpacity = this.opacity;
+        })
+        .start();
       },
       hasFlag: function(flag){
         return this.page.flags && this.page.flags.indexOf(flag)!=-1;
