@@ -17,9 +17,12 @@ function storytimeMutator(state,action,dispatch){
   switch(action.type){
     case "start_game":
       state.storytime.gameStarted = true
-      page("/")
+      setTimeout(function(){
+        page("/")
+      },1)
       return;
     case "route_changed":
+      debugger;
       state.currentRoute = action.data
       return;
   }
