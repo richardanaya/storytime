@@ -17,14 +17,7 @@
   </a-entity>
 </template>
 <script>
-  var sound = new Howl({
-    src: ['assets/sounds/WindSFXLoop1.wav'],
-    loop: true
-  });
-
-  let radioPlayingSound = sound.play();
-  sound.pos(0, 0, -0.5, radioPlayingSound);
-
+  
   Vue.component('story-scene', {
     template: document.currentScript.parentNode.querySelector("template").innerHTML,
     props: ["page"],
@@ -40,6 +33,8 @@
     },
     created: function(){
       this.onPageChange();
+      this.howlerFacade = new HowlerFacade();
+      this.handleFlags(this.page.flags)
     },
     watch: {
        page: function(){
@@ -119,8 +114,8 @@
             this.showActionText();
           }
         }
-
-
+        let camera = document.querySelector("#camera");
+        console.log(camera);
         console.log(this);
         console.log("test");
 
