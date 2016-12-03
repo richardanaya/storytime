@@ -32,8 +32,8 @@
       }
     },
     created: function(){
-      this.onPageChange();
       this.howlerFacade = new HowlerFacade();
+      this.onPageChange();
     },
     watch: {
        page: function(){
@@ -42,7 +42,7 @@
     },
     methods: {
       onPageChange: function(){
-        page.sounds.forEach(function(sound){
+        this.page.sounds.forEach(function(sound){
           this.howlerFacade.playSound(sound);
         }.bind(this));
 
