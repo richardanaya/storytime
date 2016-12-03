@@ -2,7 +2,6 @@ var ROUTE_ROOT = "";
 var ROUTE_TEST = "test";
 var router = (function(){
   function goToPage(context){
-    debugger;
     store.dispatch('route_changed',context.path)
   }
 

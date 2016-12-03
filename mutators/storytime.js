@@ -1,15 +1,15 @@
 function storytimeInitialState(){
+  var pages = {}
+  pages[window.location.pathname] = {
+    text:"blah"
+  },
+  pages[window.location.pathname+"test"] = {
+    text:"test"
+  }
   return {
     gameStarted: false,
     currentRoute: null,
-    pages: {
-      "/":{
-        text:"blah"
-      },
-      "/test":{
-        text:"test"
-      }
-    }
+    pages: pages
   }
 }
 
@@ -19,7 +19,6 @@ function storytimeMutator(state,action,dispatch){
       state.storytime.gameStarted = true
       return;
     case "route_changed":
-      debugger;
       state.currentRoute = action.data
       return;
   }
