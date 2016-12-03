@@ -4,10 +4,10 @@ function storytimeInitialState(){
       pages[window.location.pathname+name] = p;
   }
   addPage("",{
-    scene:"howard_test_scene.dae",
+    scene:"scene1.dae",
     actions:[
       {
-        trigger: "pasted__pasted__pCube1",
+        trigger: "window_wall",
         text:"Go to test",
         page:"test"
       }
