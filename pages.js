@@ -3,7 +3,7 @@ function addPage(name,p){
     pages[window.location.pathname+name] = p;
 }
 addPage("",{
-  scenes:["assets/scene_a.dae","assets/scene1.dae"],
+  scenes:["assets/scene_a.dae"],
   sky:"assets/house_sky.jpg",
   description: "On a lonely autumn night, you are woken up from your sleep by strange lights coming through the window of your farmhouse. You look outside, and see a strange meteor falling through the sky, landing on a nearby hill. You get dressed and go outside to investigate...",
   sound:"assets/sounds/house.mp3",
