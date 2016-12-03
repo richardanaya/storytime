@@ -1,7 +1,9 @@
 <template>
-  <div class="IntroScreen">
-    Welcome to Storytime
-    <button v-on:click="dispatch('start_game')">Play</button>
+  <div class="IntroScreen" @click="dispatch('start_game')">
+    <center>
+      <h1>Storytime</h1>
+      <h4>Click to Play</h4>
+  </center>
   </div>
 </template>
 <script>
