@@ -34,7 +34,6 @@
     created: function(){
       this.onPageChange();
       this.howlerFacade = new HowlerFacade();
-      this.handleFlags(this.page.flags)
     },
     watch: {
        page: function(){
@@ -42,7 +41,11 @@
        }
     },
     methods: {
-      onPageChange: function(flags){
+      onPageChange: function(){
+        page.sounds.forEach(function(sound){
+          this.howlerFacade.playSound(sound);
+        }.bind(this));
+
         if(page.flags){
           //custom handle flags
           console.log(flags)

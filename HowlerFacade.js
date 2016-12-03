@@ -1,7 +1,11 @@
 class HowlerFacade {
 	constructor() {
+		this.sounds = {
+
+		};
+
 		this.radio = new Howl({
-			src: ['assets/sounds/RadioSFX 4.wav'],
+			src: ['assets/sounds/Radio SFX 4.wav'],
 			loop: false
 		});
 	}
@@ -11,6 +15,15 @@ class HowlerFacade {
 		return soundId;
 	}
 
+	playSound(sound){
+		let howlerSound = new Howl({
+			src: [sound.sound],
+			loop: sound.loop || false,
+			volume: sound.volume
+		});
+
+		howlerSound.play();
+	}
 
 	stopSound() {
 
@@ -21,15 +34,10 @@ class HowlerFacade {
 	}
 
 }
-let radioPlayingSound = sound.play();
-sound.pos(0, 1.6, 0, radioPlayingSound);
+//let radioPlayingSound = sound.play();
+//sound.pos(0, 1.6, 0, radioPlayingSound);
 
 function updateHowlerPosition() {
 	let cameraPosition = (new THREE.Vector3(0, 1.6, 0)).add(document.querySelector("a-scene").camera.position);
 	Howler.pos(cameraPosition.x, cameraPosition.y, cameraPosition.z, radioPlayingSound);
 }
-
-
-
-
-
