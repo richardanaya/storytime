@@ -1,0 +1,45 @@
+<template>
+  <a-entity>
+    <a-box position="-0.25 1.8 -7" @click="boxTouched()"> </a-box>
+    <!-- x y z -->
+    <a-entity bmfont-text="text: Option 1; opacity: 0.05;"
+      position="-0.5 1.3 -3"
+      story-part="thistextEL: #sp1; longtextEL: #sp1a; button: #sp1b;
+      head: Option 1;
+      text: This is definetly a really good option trust me,I'm a programmer!"
+      id="sp1"> </a-entity>
+
+    <a-entity bmfont-text="opacity: 0"
+      id="sp1a" position="-2.6 0.7 -3"> </a-entity>
+
+    <a-plane id="sp1b" position="-0.12 0.2 -3" rotation="0 0 0" height="0.3"
+      material="transparent:true; opacity: 0.0"></a-plane>
+
+    <a-box position="-0.25 1.8 7" rotation="0 180 0"> </a-box>
+    <!-- x> y^ z. -->
+    <a-entity bmfont-text="text: Option 2; opacity: 0.05;"
+      position="0.3 1.3 3"  rotation="0 180 0"
+      story-part="thistextEL: #sp2; longtextEL: #sp2a; button: #sp2b;
+      head: Option 2;
+      text:Never trust a programmer!"
+      id="sp2"> </a-entity>
+
+    <a-entity bmfont-text="opacity: 0"
+      id="sp2a" position="2.4 0.7 3" rotation="0 180 0"> </a-entity>
+
+    <a-plane id="sp2b" position="-0.12 0.2 3" rotation="0 180 0" height="0.3"
+      material="transparent:true; opacity: 0.0"></a-plane>
+
+    <a-sky color="#696969" ></a-sky>
+  </a-entity>
+</template>
+<script>
+  Vue.component('story-scene', {
+    template: document.currentScript.parentNode.querySelector("template").innerHTML,
+    methods: {
+      boxTouched: function(){
+        alert("Hey")
+      }
+    }
+  })
+</script>
