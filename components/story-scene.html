@@ -10,7 +10,7 @@
       <a-box  position="-.2 -.2 0" scale=".1 .1 .1" v-bind:material="'color: green; opacity:'+actionOpacity" @click="acceptAction"></a-box>
       <a-box  position=".2 -.2 0" scale=".1 .1 .1" v-bind:material="'color: red; opacity:'+actionOpacity" @click="cancelAction"></a-box>
     </a-entity>
-    <a-collada-model v-bind:src="page.scene+'?'+randomness" @click="sceneTouched($event)"></a-collada-model>
+    <a-collada-model v-for="scene in page.scenes" v-bind:src="scene+'?'+randomness" @click="sceneTouched($event)"></a-collada-model>
     <a-sky v-bind:src="page.sky"></a-sky>
     <!--flagged items-->
     <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9" v-if="hasFlag('mysterious-box')"></a-box>
