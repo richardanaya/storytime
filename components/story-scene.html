@@ -17,7 +17,7 @@
   </a-entity>
 </template>
 <script>
-  
+
   Vue.component('story-scene', {
     template: document.currentScript.parentNode.querySelector("template").innerHTML,
     props: ["page"],
@@ -99,6 +99,21 @@
           .start();
         }
       },
+      moveCamera: function(newPos){
+        var camera = document.querySelector("#scene").sceneEl.camera;
+        var startPos = {
+          x:0,
+          y:0,
+          z:0
+        }
+        var _this = this;
+        new TWEEN.Tween(startPos)
+        .to(newPos, 1000)
+        .onUpdate(function() {
+            camera.position.set(this.x,this.y,this.z);
+        })
+        .start();
+      },
       acceptAction: function(){
         this.dispatch("go_to_page",this.actionPage);
       },
@@ -111,10 +126,16 @@
         console.log("you clicked on "+name);
         for(var i = 0 ; i < this.page.actions.length; i++){
           if(this.page.actions[i].trigger == name){
-            this.actionPage = this.page.actions[i].page
-            this.actionText = this.page.actions[i].description
-            this.hidePageText();
-            this.showActionText();
+            var action = this.page.actions[i];
+            if(action.cameraMove){
+              this.moveCamera(action.cameraMove);
+            }
+            if(action.page){
+              this.actionPage = action.page
+              this.actionText = this.page.actions[i].description
+              this.hidePageText();
+              this.showActionText();
+            }
           }
         }
         let camera = document.querySelector("#camera");
