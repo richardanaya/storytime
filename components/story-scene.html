@@ -17,6 +17,14 @@
   </a-entity>
 </template>
 <script>
+  var sound = new Howl({
+    src: ['assets/sounds/WindSFXLoop1.wav'],
+    loop: true
+  });
+
+  let radioPlayingSound = sound.play();
+  sound.pos(0, 0, -0.5, radioPlayingSound);
+
   Vue.component('story-scene', {
     template: document.currentScript.parentNode.querySelector("template").innerHTML,
     props: ["page"],
@@ -111,6 +119,11 @@
             this.showActionText();
           }
         }
+
+
+        console.log(this);
+        console.log("test");
+
       }
     }
   })
