@@ -8,8 +8,8 @@
       <copyright />
       <source_data>scene1.unity</source_data>
     </contributor>
-    <created>2016-12-03T14:43:47.0646033-05:00</created>
-    <modified>2016-12-03T14:43:47.0646033-05:00</modified>
+    <created>2016-12-03T15:02:10.001903-05:00</created>
+    <modified>2016-12-03T15:02:10.0024019-05:00</modified>
     <unit meter="1" name="meter" />
     <up_axis>Y_UP</up_axis>
   </asset>
@@ -52537,7 +52537,7 @@
   </library_geometries>
   <library_visual_scenes>
     <visual_scene id="collada_scene">
-      <node id="_-2370" name="tree1_x0020__x0028_6_x0029_">
+      <node id="_-2370" name="tree1 (6)">
         <matrix sid="matrix">
 
 0.812538 0.000000 0.582908 -8.920000 
@@ -52695,7 +52695,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-2308" name="tree1_x0020__x0028_2_x0029_">
+      <node id="_-2308" name="tree1 (2)">
         <matrix sid="matrix">
 
 0.910794 0.000000 0.412862 5.900000 
@@ -52819,7 +52819,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-2258" name="tree1_x0020__x0028_4_x0029_">
+      <node id="_-2258" name="tree1 (4)">
         <matrix sid="matrix">
 
 -0.239699 0.000000 0.970847 -9.860000 
@@ -53131,7 +53131,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-2174" name="lamp_x0020__x0028_1_x0029_">
+      <node id="_-2174" name="lamp (1)">
         <matrix sid="matrix">
 
 -0.521402 0.000000 0.853311 1.330000 
@@ -55641,7 +55641,7 @@
 0.000000 0.000000 0.000000 1.000000</matrix>
         </node>
       </node>
-      <node id="_-1260" name="tree1_x0020__x0028_5_x0029_">
+      <node id="_-1260" name="tree1 (5)">
         <matrix sid="matrix">
 
 0.910794 0.000000 0.412862 -6.240000 
@@ -55765,7 +55765,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-1248" name="chest_x0020__x0028_1_x0029_">
+      <node id="_-1248" name="chest (1)">
         <matrix sid="matrix">
 
 -1.000000 0.000000 0.000000 1.310000 
@@ -55829,7 +55829,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-1186" name="tree1_x0020__x0028_1_x0029_">
+      <node id="_-1186" name="tree1 (1)">
         <matrix sid="matrix">
 
 0.812538 0.000000 0.582908 3.220000 
@@ -56077,7 +56077,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-1086" name="tree1_x0020__x0028_7_x0029_">
+      <node id="_-1086" name="tree1 (7)">
         <matrix sid="matrix">
 
 0.827263 0.000000 -0.561814 -8.139999 
@@ -56233,7 +56233,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_-1024" name="tree1_x0020__x0028_3_x0029_">
+      <node id="_-1024" name="tree1 (3)">
         <matrix sid="matrix">
 
 -0.239699 0.000000 0.970847 2.280000 
@@ -56364,7 +56364,7 @@
 0.000000 1.000000 0.000000 0.000000 
 0.000000 0.000000 1.000000 0.000000 
 0.000000 0.000000 0.000000 1.000000</matrix>
-        <node id="_-1010" name="Main_x0020_Camera">
+        <node id="_-1010" name="Main Camera">
           <matrix sid="matrix">
 
 -1.000000 0.000000 0.000000 0.000000 
@@ -56409,7 +56409,7 @@
           </instance_geometry>
         </node>
       </node>
-      <node id="_14494" name="Directional_x0020_Light">
+      <node id="_14494" name="Directional Light">
         <matrix sid="matrix">
 
 0.866025 0.383022 0.321394 0.000000 
@@ -56417,7 +56417,7 @@
 -0.500000 0.663414 0.556670 0.000000 
 0.000000 0.000000 0.000000 1.000000</matrix>
       </node>
-      <node id="_14534" name="Point_x0020_light">
+      <node id="_14534" name="Point light">
         <matrix sid="matrix">
 
 1.000000 0.000000 0.000000 0.000000 

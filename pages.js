@@ -3,7 +3,7 @@ function addPage(name,p){
     pages[window.location.pathname+name] = p;
 }
 addPage("",{
-  scene:"assets/howard_test_scene.dae",
+  scene:"assets/scene1.dae",
   sky:"assets/free.jpg",
   actions:[
     {
