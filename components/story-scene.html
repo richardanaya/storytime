@@ -1,22 +1,21 @@
 <template>
   <a-entity>
     <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9" @click="boxTouched"></a-box>
-    <a-entity v-bind:bmfont-text="'text: '+pageText+'; opacity:'+pageOpacity"></a-entity>
+    <a-entity v-bind:bmfont-text="'text: '+page.text+'; opacity:'+pageOpacity"></a-entity>
   </a-entity>
 </template>
 <script>
   Vue.component('story-scene', {
     template: document.currentScript.parentNode.querySelector("template").innerHTML,
+    props: ["page"],
     data: function(){
       return {
-        pageText: "hey",
         pageOpacity: 1
       }
     },
     methods: {
       boxTouched: function(){
         var _this = this;
-        this.pageText = "what"
         var tween = new TWEEN.Tween({opacity: 1})
         .to({ opacity: 0 }, 1000)
         .onUpdate(function() {

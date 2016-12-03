@@ -1,4 +1,5 @@
 var ROUTE_ROOT = "/";
+var ROUTE_TEST = "/test";
 var router = (function(){
   function goToPage(context){
     store.dispatch('route_changed',context.path)
@@ -6,6 +7,7 @@ var router = (function(){
 
   // ACTIVE ROUTES
   page(ROUTE_ROOT, goToPage)
+  page(ROUTE_TEST, goToPage)
 
   return {
     goTo: function(path){

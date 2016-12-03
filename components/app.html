@@ -4,6 +4,11 @@
     el: '#scene',
     data: {
         state: store.state
+    },
+    computed: {
+      currentPage: function(){
+        return this.state.storytime.pages[this.state.currentRoute];
+      }
     }
   })
 </script>
