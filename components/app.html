@@ -7,7 +7,8 @@
     },
     computed: {
       currentPage: function(){
-        return this.state.storytime.pages[this.state.currentRoute];
+        var default = this.state.storytime.pages["/"]
+        return this.state.storytime.pages[this.state.currentRoute]||default;
       }
     }
   })
