@@ -18,13 +18,22 @@ addPage("",{
       loop: true
     },
     {
-      name: "baritone",
+      name: "Piano",
       sound:"assets/sounds/stems/Stem2(Piano).wav",
       volume: 1,
       loop: true
     },
     {
-      name: ""
+      name: "Haunting ambiance",
+      sound: escape("assets/sounds/stems/Stem3(Haunting ambience).wave"),
+      volume: 1,
+      loop: true
+    },
+    {
+      name: "Uneasy",
+      sound: escape("assets/sounds/stems/Stem #4 (Haunting ambience).wave"),
+      volume: 1,
+      loop: true
     }
   ],
   flags:["fog"],
