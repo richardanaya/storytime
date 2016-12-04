@@ -36,7 +36,7 @@ addPage("",{
     {
       trigger: "Cat",
       description: "Approach the meteor",
-      page:"approach_meteor",
+      cameraMove: {x:1,y:0,z:0},
       hoverSound: {
         name:"woodwind",
         volume:.3
