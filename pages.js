@@ -86,7 +86,7 @@ addPage("",{
       trigger: "Cat",
       description: "Approach the meteor",
       cameraMove: {x:1,y:0,z:0},
-      hoverSound: {
+      hoverSounds: {
         name:"woodwind",
         volume:.3,
         type: "music"
@@ -95,7 +95,12 @@ addPage("",{
     {
       trigger: "chicken",
       text: "The chicken was a sleep and did not like being rudely awoken.",
-      hoverSound:"assets/sounds/chicken.mp3"
+      hoverSounds:{
+        name: "radio",
+        sound: "assets/sounds/Radio SFX 4.wav",
+        type: "effect",
+        loop: false
+      }
     }
   ]
 })

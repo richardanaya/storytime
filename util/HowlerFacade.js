@@ -1,21 +1,26 @@
 class HowlerFacade {
 	constructor() {
-		this.sounds = {
+		this.stems = {};
 
+		this.sounds = {
+			radio: new Howl({
+				src: ['assets/sounds/Radio SFX 4.wav'],
+				loop: false
+			})
 		};
 
-		this.radio = new Howl({
-			src: ['assets/sounds/Radio SFX 4.wav'],
-			loop: false
-		});
 	}
 
-	playRadio() {
-		const soundId = this.radio.play();
+	playSoundEffect(name) {
+		const howlSound = this.sounds[name];
+		const soundId = howlSound.play();
 		return soundId;
 	}
 
-	playSound(sound){
+	playMusic(name) {
+	}
+
+	playSound(sound) {
 		let howlerSound = new Howl({
 			src: [sound.sound],
 			loop: sound.loop || false,
@@ -25,7 +30,7 @@ class HowlerFacade {
 		howlerSound.play();
 	}
 
-	stopSound() {
+	stopSound(soundId) {
 
 	}
 
