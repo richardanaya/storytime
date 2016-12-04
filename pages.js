@@ -23,7 +23,7 @@ addPage("",{
   flags:["fog"],
   actions:[
     {
-      trigger: "hill",
+      trigger: "Window",
       description: "Climb the hill",
       page:"climb_hill",
       hoverSound: [
@@ -34,7 +34,7 @@ addPage("",{
       ]
     },
     {
-      trigger: "Cat",
+      trigger: "Door",
       description: "Approach the meteor",
       cameraMove: {x:1,y:0,z:0},
       hoverSound: {
