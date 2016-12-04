@@ -32,6 +32,11 @@
       }
     },
     created: function(){
+      var _this = this;
+      this.cursor  = document.querySelector("#cursor").components.cursor;
+      document.addEventListener("mousemove",function(){
+        _this.updateCurrentIntersection();
+      })
       this.howlerFacade = new HowlerFacade();
       this.onPageChange();
     },
@@ -41,6 +46,44 @@
        }
     },
     methods: {
+      updateCurrentIntersection: function(){
+        if(this.cursor.intersections){
+          if(this.cursor.intersections.length>0){
+            var name = this.cursor.intersections[0].object.parent.colladaId;
+            if(name == undefined){
+              return;
+            }
+            if(name !== this.currentIntersectionName){
+              this.onHoverObject(name)
+            }
+            this.currentIntersectionName = name;
+          }
+          else {
+            if(this.currentIntersectionName != null){
+              this.onHoverObject(null)
+            }
+            this.currentIntersectionName = null;
+          }
+        }
+        else {
+          if(this.currentIntersectionName != null){
+            this.onHoverObject(null)
+          }
+          this.currentIntersectionName = null;
+        }
+      },
+      onHoverObject: function(name){
+        if(name == null){
+          console.log("no known objects hovered over");
+        }
+        console.log("hovering over "+name);
+        for(var i = 0 ; i < this.page.actions.length; i++){
+          var action = this.page.actions[i];
+          if(action.trigger == name){
+            //if hoversound
+          }
+        }
+      },
       onPageChange: function(){
         this.page.sounds.forEach(function(sound){
           this.howlerFacade.playSound(sound);
