@@ -15,25 +15,57 @@ addPage("",{
       name:"Guitar",
       sound:"assets/sounds/stems/Stem1(Guitar).wav",
       volume: 1,
-      loop: true
+      loop: true,
+      type: "music"
     },
     {
       name: "Piano",
       sound:"assets/sounds/stems/Stem2(Piano).wav",
       volume: 1,
-      loop: true
+      loop: true,
+      type: "music"
     },
     {
       name: "Haunting ambiance",
       sound: escape("assets/sounds/stems/Stem3(Haunting ambience).wave"),
       volume: 1,
-      loop: true
+      loop: true,
+      type: "music"
     },
     {
       name: "Uneasy",
       sound: escape("assets/sounds/stems/Stem #4 (Haunting ambience).wave"),
       volume: 1,
-      loop: true
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Trashed Piano",
+      sound: escape("assets/sounds/stems/Stem #5 (Trashed Piano).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Dark Wind",
+      sound: escape("assets/sounds/stems/Stem #6 (Dark Wind).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Tortured Strings",
+      sound: escape("assets/sounds/stems/Stem #7 (Tortured Strings).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Kick",
+      sound: escape("assets/sounds/stems/Stem4(Kick).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
     }
   ],
   flags:["fog"],
@@ -44,8 +76,9 @@ addPage("",{
       page:"climb_hill",
       hoverSound: [
         {
-          name:"woodwind",
-          volume: .7
+          name:"Guitar",
+          volume: .7,
+          type: "music"
         }
       ]
     },
@@ -55,16 +88,18 @@ addPage("",{
       cameraMove: {x:1,y:0,z:0},
       hoverSound: {
         name:"woodwind",
-        volume:.3
+        volume:.3,
+        type: "music"
       }
     },
     {
       trigger: "chicken",
       text: "The chicken was a sleep and did not like being rudely awoken.",
-      playSound:"assets/sounds/chicken.mp3"
+      hoverSound:"assets/sounds/chicken.mp3"
     }
   ]
 })
+
 addPage("approach_meteor",{
   customScene: "custom-scene-example"
 })
