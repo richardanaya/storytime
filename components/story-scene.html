@@ -80,9 +80,14 @@
         for(var i = 0 ; i < this.page.actions.length; i++){
           var action = this.page.actions[i];
           if(action.trigger == name){
+            if(action.page){
+                this.cursor.el.setAttribute("material","color:red");
+            }
             //if hoversound
+            return;
           }
         }
+        this.cursor.el.setAttribute("material","color:white");
       },
       onPageChange: function(){
         this.page.sounds.forEach(function(sound){
