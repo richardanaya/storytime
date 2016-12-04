@@ -2,22 +2,70 @@ var pages = {}
 function addPage(name,p){
     pages[window.location.pathname+name] = p;
 }
+
+function stemPathHelper(value) {
+  return "Stem #" + value + ".wav";
+}
 addPage("",{
   scenes:["assets/scene1.dae"],
   sky:"assets/house_sky.jpg",
   description: "On a lonely autumn night, you are woken up from your sleep by strange lights coming through the window of your farmhouse. You look outside, and see a strange meteor falling through the sky, landing on a nearby hill. You get dressed and go outside to investigate...",
   sounds:[
     {
-      name:"woodwind",
-      sound:"assets/sounds/Radio SFX 4.wav",
+      name:"Guitar",
+      sound:"assets/sounds/stems/Stem1(Guitar).wav",
       volume: 1,
-      loop: false
+      loop: true,
+      type: "music"
     },
     {
-      name: "baritone",
-      sound: "assets/WindSFXLoop1.wav",
+      name: "Piano",
+      sound:"assets/sounds/stems/Stem2(Piano).wav",
       volume: 1,
-      loop: false
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Haunting ambiance",
+      sound: escape("assets/sounds/stems/Stem3(Haunting ambience).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Uneasy",
+      sound: escape("assets/sounds/stems/Stem #4 (Haunting ambience).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Trashed Piano",
+      sound: escape("assets/sounds/stems/Stem #5 (Trashed Piano).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Dark Wind",
+      sound: escape("assets/sounds/stems/Stem #6 (Dark Wind).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Tortured Strings",
+      sound: escape("assets/sounds/stems/Stem #7 (Tortured Strings).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
+    },
+    {
+      name: "Kick",
+      sound: escape("assets/sounds/stems/Stem4(Kick).wave"),
+      volume: 1,
+      loop: true,
+      type: "music"
     }
   ],
   flags:["fog"],
@@ -28,8 +76,9 @@ addPage("",{
       page:"climb_hill",
       hoverSound: [
         {
-          name:"woodwind",
-          volume: .7
+          name:"Guitar",
+          volume: .7,
+          type: "music"
         }
       ]
     },
@@ -37,18 +86,25 @@ addPage("",{
       trigger: "Door",
       description: "Approach the meteor",
       cameraMove: {x:1,y:0,z:0},
-      hoverSound: {
+      hoverSounds: {
         name:"woodwind",
-        volume:.3
+        volume:.3,
+        type: "music"
       }
     },
     {
       trigger: "chicken",
       text: "The chicken was a sleep and did not like being rudely awoken.",
-      playSound:"assets/sounds/chicken.mp3"
+      hoverSounds:{
+        name: "radio",
+        sound: "assets/sounds/Radio SFX 4.wav",
+        type: "effect",
+        loop: false
+      }
     }
   ]
 })
+
 addPage("approach_meteor",{
   customScene: "custom-scene-example"
 })
